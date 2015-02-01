@@ -6,16 +6,18 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class Drive {
-
+	//Import joysticks and talons from Robot.java
+	Joystick joystickLeft;
+	Joystick joystickRight;
 	Talon talonLeft;
 	Talon talonRight;
 	Talon omniTalon;
 	DoubleSolenoid omniDirection;
-	Joystick joystickLeft;
-	Joystick joystickRight;
+	
 	int driveState = 1;
 
-	public Drive(Joystick JL, Joystick JR, Talon TL, Talon TR, Talon OT, DoubleSolenoid OD) {
+	public Drive(Joystick JL, Joystick JR, Talon TL, Talon TR, Talon OT, 
+			DoubleSolenoid OD) {
 		talonLeft = TL;
 		talonRight = TR;
 		omniTalon = OT;
@@ -31,7 +33,7 @@ public class Drive {
 	}
 
 	public void autonomousPeriodic() {
-
+		
 	}
 
 	public void teleopPeriodic() {
@@ -72,4 +74,13 @@ public class Drive {
 		}
 
 	}
+	
+	//voids for autonomous
+	public void leftMotor(double input) {
+		talonLeft.set(input);
+	}
+	public void rightMotor(double input) {
+		talonRight.set(input);
+	}
+	
 }
