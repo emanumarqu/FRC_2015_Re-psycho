@@ -22,7 +22,7 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
-	Compressor compressorAir;
+	
 	Joystick joystickLeft;
 	Joystick joystickRight;
 	Talon talonLeft;
@@ -31,6 +31,7 @@ public class Robot extends IterativeRobot {
 	DoubleSolenoid omniDirection;
 	DoubleSolenoid solenoidClawLeft;
 	DoubleSolenoid solenoidClawRight;
+	Compressor compressorAir;
 	
 	Elevator elevator;
 	Autonomous autonomous;
@@ -39,7 +40,6 @@ public class Robot extends IterativeRobot {
 	
 
 	public Robot() {
-		compressorAir = new Compressor();
 		joystickLeft = new Joystick(0);
 		joystickRight = new Joystick(1);
 		talonLeft = new Talon(0);
@@ -48,8 +48,9 @@ public class Robot extends IterativeRobot {
 		omniDirection = new DoubleSolenoid(5, 6);
 		solenoidClawLeft = new DoubleSolenoid(1, 2);
 		solenoidClawRight = new DoubleSolenoid(3, 4);
+		compressorAir = new Compressor();
 		
-		autonomous = new Autonomous(talonLeft, talonRight, omniTalon, omniDirection, solenoidClawLeft, solenoidClawRight);
+		autonomous = new Autonomous(joystickLeft, joystickLeft, talonLeft, talonRight, omniTalon, omniDirection, solenoidClawLeft, solenoidClawRight);
 		elevator = new Elevator();
 		robotDriveOmni = new Drive(joystickLeft, joystickRight, talonLeft, talonRight, omniTalon, omniDirection);
 		robotClaw = new Claw(joystickLeft, solenoidClawLeft, solenoidClawRight);
