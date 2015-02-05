@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class Autonomous {
-
+	//hector sucks ass
 	Talon talonLeft;
 	Talon talonRight;
 	Talon omniTalon;
